@@ -22,7 +22,7 @@ namespace API_Project.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> GetAllProducts()
         {
-            var products = await _context.products.ToListAsync();
+            var products = await _context.pesonaldata2.ToListAsync();
             return Ok(products);
         }
 
@@ -30,7 +30,7 @@ namespace API_Project.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetProductById(int id)
         {
-            var products = await _context.products.FindAsync(id);
+            var products = await _context.pesonaldata2.FindAsync(id);
             if (products == null)
                 return NotFound();
             return Ok(products);
@@ -68,7 +68,7 @@ namespace API_Project.Controllers
 
         private bool ProductExists(int id)
         {
-            return _context.products.Any(e => e.Id == id);
+            return _context.pesonaldata2.Any(e => e.Id == id);
         }
         [HttpPatch("{id}")]
         [Consumes("application/json-patch+json")]
@@ -77,7 +77,7 @@ namespace API_Project.Controllers
             if (patchDoc == null)
                 return BadRequest();
 
-            var product = await _context.products.FindAsync(id);
+            var product = await _context.pesonaldata2.FindAsync(id);
             if (product == null)
                 return NotFound();
 
@@ -87,7 +87,8 @@ namespace API_Project.Controllers
                 return BadRequest(ModelState);
 
             await _context.SaveChangesAsync();
-            return Ok(product);
+            return Ok(
+                );
         }
 
 

@@ -7,6 +7,6 @@ namespace API_Project.Data
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
-        public DbSet<Product> products { get; set; }
+        public DbSet<Product> pesonaldata2 { get; set; }
     }
 }

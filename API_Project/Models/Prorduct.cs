@@ -6,10 +6,13 @@
         [Column("id")]
         public int Id { get; set; }
 
-        [Column("name")]
-        public required string Name { get; set; }
+        [Column("first_name")]
+        public required string First_name { get; set; }
 
-        [Column("price")]
-        public decimal Price { get; set; }
+        [Column("last_name")]
+        public required string Last_name { get; set; }
+
+        [Column("phone")]
+        public required string phone { get; set; }
     }
 }
