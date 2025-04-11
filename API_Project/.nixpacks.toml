@@ -2,8 +2,9 @@
 nixPkgs = ["dotnet-sdk_8"]
 
 [phases.build]
-cmds = ["dotnet build -c Release"]
+cmds = ["dotnet build -c Release API_Project/API_Project/API_Project.csproj"]
 
 [phases.start]
-cmd = "dotnet run --project API_Project.csproj"
+cmd = "dotnet run --project API_Project/API_Project/API_Project.csproj"
+
 
