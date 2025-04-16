@@ -1,12 +1,12 @@
-# Use the official .NET SDK image to build and publish the app
+# Stage 1: Build
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-WORKDIR /src
-COPY . .
+WORKDIR /app
+COPY . ./
 RUN dotnet restore
-RUN dotnet publish -c Release -o /app
+RUN dotnet publish -c Release -o out
 
-# Use the ASP.NET runtime image
+# Stage 2: Run
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
-COPY --from=build /app .
+COPY --from=build /app/out ./
 ENTRYPOINT ["dotnet", "API_Project.dll"]
