@@ -8,7 +8,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
 # 3. Copy และ Restore packages
-COPY "./API_Project.csproj" "./"
+COPY API_Project.csproj .
 RUN dotnet restore "./API_Project.csproj"
 
 # 4. Copy ทั้งโปรเจกต์และ Build
